@@ -12,7 +12,7 @@ clc
 ##                 -Measure from the top edge of the frame to nail tip
   heightWall = 108;
   heightFrame = 38 + (1/8);
-  heightNail = 0.5;
+  heightNail = 3.5;
   
   %----------
   % Options:
@@ -27,12 +27,12 @@ clc
   endif
   
   heightAligned = heightWall*alignmentRatio;
-  heightTopEdge = heightAligned + (heightFrame*alignmentRatio);
-  heightNailWall = heightTopEdge - heightNail;
+  heightTopEdge = heightAligned - (heightFrame*alignmentRatio);
+  heightNailWall = heightTopEdge + heightNail;
   
   if strcmp(units,'inches')
     precision = 1/16;
-    [inches,remainder] = FormatToInches(heightNailWall,precision)
+    [inches,remainder] = FormatToInches(heightNailWall,precision);
     if remainder==0
       fprintf('Nail %d" below the ceiling\n',inches)
     else
