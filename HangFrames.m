@@ -15,11 +15,13 @@ clear all
   heightWall = 108;
   heightFrame = 38 + (1/8);
   heightNail = 3.5;
+
   
   widthWall = 37;
   widthFrame = 26.5;
   colorWall = [61,67,82]./255;
-  colorPoster = [138,136,91]./255;
+  colorPosterFrame = [255,25,05]./255;
+  colorPoster = [200,200,200]./255;
   %----------
   % Options:
   alignment = 'thirds'; % 'thirds' or 'golden'
@@ -52,7 +54,7 @@ clear all
   hold on
   axis equal
   plotRectangle(widthWall,heightWall,-widthWall/2,-heightWall,0,colorWall,1,colorWall,'wall',gca)
-  plotRectangle(widthFrame,heightFrame,-widthFrame/2,-heightFrame -heightTopEdge,0,colorPoster,1,colorPoster,'wall',gca)
+  plotRectangle(widthFrame,heightFrame,-widthFrame/2,-heightFrame -heightTopEdge,0,colorPosterFrame,5,colorPoster,'wall',gca)
   
 end
 
