@@ -1,20 +1,34 @@
-function plotRectangle(width,height,leftX,bottomY,rotation,outlineColor,lineWidth,fillColor,displayName,currentAxes)
+function plotRectangle(width,height,leftX,bottomY,rotation,outlineColor,borderLineWidth,fillColor,displayName,currentAxes)
   [xL,yL] = VerticalLineSegment(leftX,height,bottomY);
   [xR,yR] = VerticalLineSegment(leftX+width,height,bottomY);
 
   [xT,yT] = HorizontalLineSegment(width,bottomY+height,leftX);
   [xB,yB] = HorizontalLineSegment(width,bottomY,leftX);
 
-  yR = flipud(yL);
-  xB = flipud(xB);
-  x = [xL;xT(2);xR;xB(2)]
-  y = [yL;yT(2);yR;yB(2)]
-  patch(x,y,fillColor)
+  % Plot the fill area
+  xFill = [xL;xT(2);xR;flipud(xB)(2)];
+  yFill = [yL;yT(2);flipud(yL);yB(2)];
+  patch(xFill,yFill,fillColor)
 
-    plot(xL,yL,'color',outlineColor,'LineStyle','-','LineWidth',lineWidth,'DisplayName',displayName);
-    plot(xR,yR,'color',outlineColor,'LineStyle','-','LineWidth',lineWidth,'DisplayName',displayName);
-    plot(xT,yT,'color',outlineColor,'LineStyle','-','LineWidth',lineWidth,'DisplayName',displayName);
-    plot(xB,yB,'color',outlineColor,'LineStyle','-','LineWidth',lineWidth,'DisplayName',displayName);
+  % Draw the border as four separate filled rectangles
+  % This allows defining the width in mm, rather than in pixels
+  xLeft = [xL;xL(2)+borderLineWidth;xL(1)+borderLineWidth]
+  yLeft = [yL;yL(2);yL(1)]
+  patch(xLeft,yLeft,outlineColor)
+  xTop = [xT;xT(2);xT(1)]
+  yTop = [yT;yT(2)-borderLineWidth;yT(1)-borderLineWidth]
+  patch(xTop,yTop,outlineColor)
+  xRight = [xR;xR(2)-borderLineWidth;xR(1)-borderLineWidth]
+  yRight = [yR;yR(2);yR(1)]
+  patch(xRight,yRight,outlineColor)
+  xBot = [xB;xB(2);xB(1)]
+  yBot = [yB;yB(2)-borderLineWidth;yB(1)-borderLineWidth]
+  patch(xBot,yBot,outlineColor)
+
+##    plot(xL,yL,'color',outlineColor,'LineStyle','-','LineWidth',lineWidth,'DisplayName',displayName);
+##    plot(xR,yR,'color',outlineColor,'LineStyle','-','LineWidth',lineWidth,'DisplayName',displayName);
+##    plot(xT,yT,'color',outlineColor,'LineStyle','-','LineWidth',lineWidth,'DisplayName',displayName);
+##    plot(xB,yB,'color',outlineColor,'LineStyle','-','LineWidth',lineWidth,'DisplayName',displayName);
 end
 
 function [x,y] = VerticalLineSegment(x,length,bottom)

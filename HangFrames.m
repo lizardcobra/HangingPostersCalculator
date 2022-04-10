@@ -19,6 +19,7 @@ clear all
   
   widthWall = 37;
   widthFrame = 26.5;
+  frameBorderThickness = 1.5;
   colorWall = [61,67,82]./255;
   colorPosterFrame = [255,25,05]./255;
   colorPoster = [200,200,200]./255;
@@ -54,7 +55,7 @@ clear all
   hold on
   axis equal
   plotRectangle(widthWall,heightWall,-widthWall/2,-heightWall,0,colorWall,1,colorWall,'wall',gca)
-  plotRectangle(widthFrame,heightFrame,-widthFrame/2,-heightFrame -heightTopEdge,0,colorPosterFrame,5,colorPoster,'wall',gca)
+  plotRectangle(widthFrame,heightFrame,-widthFrame/2,-heightFrame -heightTopEdge,0,colorPosterFrame,frameBorderThickness,colorPoster,'wall',gca)
   
 end
 
