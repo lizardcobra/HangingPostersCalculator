@@ -54,7 +54,7 @@ clear all
   figure(1)
   hold on
   axis equal
-  plotRectangle(widthWall,heightWall,-widthWall/2,-heightWall,0,colorWall,1,colorWall,'wall',gca)
+  plotRectangle(widthWall,heightWall,-widthWall/2,-heightWall,0,colorWall,0,colorWall,'wall',gca)
   plotRectangle(widthFrame,heightFrame,-widthFrame/2,-heightFrame -heightTopEdge,0,colorPosterFrame,frameBorderThickness,colorPoster,'wall',gca)
   
 end
