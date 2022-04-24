@@ -3,8 +3,7 @@ clc
 clf
 clear all
 
-addpath('.\measurementScripts')
-poster = yodaPoster;
+poster = poster_Yoda;
 %---------------------------------------------
   
   if strcmp(poster.alignment,'thirds')
