@@ -4,12 +4,7 @@ function [poster] = definePosterProperties(widthFrame, ...
                                xPosition, ...
                                frameBorderThickness, ...
                                colorPosterFrame, ...
-                               colorPoster, ...
-                               heightWall, ...
-                               widthWall, ...
-                               colorWall, ...
-                               alignment, ...
-                               units)
+                               colorPoster)
 ##   All height inputs are dimensions; enter the absolute value
 ##   INPUTS:
 ##     heightAligned: The imaginary line that all pictures will hang upon
@@ -23,20 +18,11 @@ function [poster] = definePosterProperties(widthFrame, ...
 ##    xPosition: 'centered' - will place it in the center of the width of the wall
 ##               distance value - will place it distance from left edge of the wall  
 %---------------------------------------------
-  poster.widthFrame = 26.5;
-  poster.heightFrame = 38 + (1/8);
-  poster.heightNail = 3.5;
-  poster.xPosition = 'centered';
-  poster.frameBorderThickness = 1.5;
-  poster.colorPosterFrame = [255,25,05]./255;
-  poster.colorPoster = [200,200,200]./255;
-
-  poster.heightWall = 108;
-  poster.widthWall = 37;
-  poster.colorWall = [61,67,82]./255;
-  %---------------------------------------------
-  % Options:
-  poster.alignment = 'thirds'; % 'thirds' or 'golden'
-  poster.units = 'inches'; % 'in' or 'mm'
-  %---------------------------------------------
+  poster.widthFrame = widthFrame;
+  poster.heightFrame = heightFrame;
+  poster.heightNail = heightNail;
+  poster.xPosition = xPosition;
+  poster.frameBorderThickness = frameBorderThickness;
+  poster.colorPosterFrame = colorPosterFrame;
+  poster.colorPoster = colorPoster;
 end

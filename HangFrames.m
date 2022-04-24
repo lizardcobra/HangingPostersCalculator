@@ -3,20 +3,20 @@ clc
 clf
 clear all
 
-poster = poster_Yoda;
+[poster,wall] = poster_Yoda;
 %---------------------------------------------
-  
-  if strcmp(poster.alignment,'thirds')
+
+  if strcmp(wall.alignment,'thirds')
     alignmentRatio = 1/3;    
-  elseif strcmp(poster.alignment,'golden')
+  elseif strcmp(wall.alignment,'golden')
     alignmentRatio = ( 1 + sqrt(5) ) / 2;
   endif
   
-  heightAligned = poster.heightWall*alignmentRatio;
+  heightAligned = wall.heightWall*alignmentRatio;
   heightTopEdge = heightAligned - (poster.heightFrame*alignmentRatio);
   heightNailWall = heightTopEdge + poster.heightNail;
   
-  if strcmp(poster.units,'inches')
+  if strcmp(wall.units,'inches')
     precision = 1/16;
     [inches,remainder] = FormatToInches(heightNailWall,precision);
     if remainder==0
@@ -29,7 +29,7 @@ poster = poster_Yoda;
   endif
 
   if strcmp(poster.xPosition,'centered')==1
-    xFrameLeft = poster.widthWall/2-poster.widthFrame/2;
+    xFrameLeft = wall.widthWall/2-poster.widthFrame/2;
   else
     xFrameLeft = poster.xPosition;
   endif
@@ -37,7 +37,7 @@ poster = poster_Yoda;
   figure(1)
   hold on
   axis equal
-  plotRectangle(poster.widthWall,poster.heightWall,0,-poster.heightWall,0,poster.colorWall,0,poster.colorWall,'wall',gca)
+  plotRectangle(wall.widthWall,wall.heightWall,0,-wall.heightWall,0,wall.colorWall,0,wall.colorWall,'wall',gca)
   plotRectangle(poster.widthFrame,poster.heightFrame,xFrameLeft,-poster.heightFrame -heightTopEdge,0,poster.colorPosterFrame,poster.frameBorderThickness,poster.colorPoster,'wall',gca)
   
 end
