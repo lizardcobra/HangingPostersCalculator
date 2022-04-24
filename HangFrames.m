@@ -12,13 +12,17 @@ clear all
 ##                 -Slide the nail back slightly, so the point is flush with the back
 ##                 plane of the frame (where nail will enter the drywall)
 ##                 -Measure from the top edge of the frame to nail tip
-  heightWall = 108;
+##    xPosition: 'centered' - will place it in the center of the width of the wall
+##               distance value - will place it distance from left edge of the wall
+
+  widthFrame = 26.5;
   heightFrame = 38 + (1/8);
   heightNail = 3.5;
+  xPosition = 'centered'
 
-  
+  heightWall = 108;
   widthWall = 37;
-  widthFrame = 26.5;
+
   frameBorderThickness = 1.5;
   colorWall = [61,67,82]./255;
   colorPosterFrame = [255,25,05]./255;
@@ -50,12 +54,18 @@ clear all
   elseif strcmp(units,'mm')
     
   endif
+
+  if strcmp(xPosition,'centered')==1
+    xFrameLeft = widthWall/2-widthFrame/2
+  else
+    xFrameLeft = xPosition
+  endif
   
   figure(1)
   hold on
   axis equal
-  plotRectangle(widthWall,heightWall,-widthWall/2,-heightWall,0,colorWall,0,colorWall,'wall',gca)
-  plotRectangle(widthFrame,heightFrame,-widthFrame/2,-heightFrame -heightTopEdge,0,colorPosterFrame,frameBorderThickness,colorPoster,'wall',gca)
+  plotRectangle(widthWall,heightWall,0,-heightWall,0,colorWall,0,colorWall,'wall',gca)
+  plotRectangle(widthFrame,heightFrame,xFrameLeft,-heightFrame -heightTopEdge,0,colorPosterFrame,frameBorderThickness,colorPoster,'wall',gca)
   
 end
 
