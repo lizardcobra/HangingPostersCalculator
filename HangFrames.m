@@ -1,10 +1,6 @@
-function HangFrames()
-clc
-clf
-clear all
-
-[poster,wall] = poster_LifeAquatic;
-%---------------------------------------------
+function HangFrames(poster,wall)
+  clc
+  clf
 
   if strcmp(wall.alignment,'thirds')
     alignmentRatio = 1/3;    
@@ -25,7 +21,7 @@ clear all
       fprintf('Nail %d %d/%d" below the ceiling\n',inches,remainder,1/precision)
     endif
   elseif strcmp(units,'mm')
-    %TODO:
+    error('Units mm not yet supported.')
   endif
 
   if strcmp(poster.xPosition,'centered')==1
