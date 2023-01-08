@@ -11,7 +11,8 @@ classdef WallProperties
     widthWall;
     colorWall;
     %% Options
-    alignment;
-    units;
+    alignment = 'thirds';
+    units = 'inches';
   end
+
 end
