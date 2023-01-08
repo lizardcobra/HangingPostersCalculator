@@ -3,7 +3,7 @@ clc
 clf
 clear all
 
-[poster,wall] = poster_Yoda;
+[poster,wall] = poster_LifeAquatic;
 %---------------------------------------------
 
   if strcmp(wall.alignment,'thirds')
@@ -39,7 +39,7 @@ clear all
   axis equal
   plotRectangle(wall.widthWall,wall.heightWall,0,-wall.heightWall,0,wall.colorWall,0,wall.colorWall,'wall',gca)
   plotRectangle(poster.widthFrame,poster.heightFrame,xFrameLeft,-poster.heightFrame -heightTopEdge,0,poster.colorPosterFrame,poster.frameBorderThickness,poster.colorPoster,'wall',gca)
-  
+  setFigureFullScreen(1)
 end
 
 function [inches,remainder] = FormatToInches(value,precision)
