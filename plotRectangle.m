@@ -23,7 +23,7 @@ function plotRectangle(width,height,leftX,bottomY,rotation,outlineColor,borderLi
     yRight = [yR;yR(2);yR(1)];
     patch(xRight,yRight,outlineColor)
     xBot = [xB;xB(2);xB(1)];
-    yBot = [yB;yB(2)-borderLineWidth;yB(1)-borderLineWidth];
+    yBot = [yB;yB(2)+borderLineWidth;yB(1)+borderLineWidth];
     patch(xBot,yBot,outlineColor)
   endif
 end
