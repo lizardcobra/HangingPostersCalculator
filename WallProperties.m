@@ -1,7 +1,9 @@
 classdef WallProperties
 
-%  alignment - The ratio used to calculate how high to hang the picture relative to the available space
-%     Options: 'thirds', 'golden'
+%  heightAlignment - The ratio used to calculate how high to hang the picture relative to the available space
+%     Options: 'thirds', 'golden', or absolute position
+%              If the absolute position has been determined, provide the height of the top of the frame from
+%              the top of the wall. Otherwise, assign one of the ratios to this property.
 %  units - Units of all dimensions
 %     Options: 'mm', 'inches'
 
@@ -10,9 +12,6 @@ classdef WallProperties
     heightWall;
     widthWall;
     colorWall;
-    %% Options
-    alignment = 'thirds';
-    units = 'inches';
   end
 
 end

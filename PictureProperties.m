@@ -1,4 +1,4 @@
-classdef PosterProperties
+classdef PictureProperties
 %   * All height inputs are dimensions; enter the absolute value
 %
 %   widthFrame - Physical outer dimension of frame
@@ -12,9 +12,16 @@ classdef PosterProperties
 %   xPosition - Defines the horizontal position of the center of the frame from the left edge of the wall
 %     'centered' - will place it in the center of the width of the wall
 %     numeric value - position it a specific distance 
-%    frameBorderThickness - Width of the front face of the frame
-%    colorPosterFrame - Colors the frame a solid color
-%    colorPoster - Colors the interior of the picutre a solid color
+%  frameBorderThickness - Width of the front face of the frame
+%  colorPosterFrame - Colors the frame a solid color
+%  colorPoster - Colors the interior of the picutre a solid color
+%  heightAlignment - The ratio used to calculate how high to hang the picture relative to the available space
+%     Options: 'thirds', 'golden', or absolute position
+%              If the absolute position has been determined, provide the height of the top of the frame from
+%              the top of the wall. Otherwise, assign one of the ratios to this property.
+%  units - Units of all dimensions
+%     Options: 'mm', 'inches'
+
   properties
     widthFrame
     heightFrame
@@ -23,5 +30,8 @@ classdef PosterProperties
     frameBorderThickness
     colorPosterFrame
     colorPoster
+    %% Options
+    heightAlignment = 'thirds';
+    units = 'inches';
   end
 end
